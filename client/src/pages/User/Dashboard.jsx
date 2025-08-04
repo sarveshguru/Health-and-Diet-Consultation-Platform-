@@ -147,7 +147,7 @@ const UserDashboard = () => {
       </Box>
 
       <Grid container spacing={4} mb={3}>
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={4}>
           <DataCard
             label="Weight"
             value={getLatest(userDetails?.weight)}
@@ -157,7 +157,7 @@ const UserDashboard = () => {
             onEdit={(val) => handleUpdateField("weight", val)}
           />
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={4}>
           <DataCard
             label="Height"
             value={getLatest(userDetails?.height)}
@@ -167,14 +167,14 @@ const UserDashboard = () => {
             onEdit={(val) => handleUpdateField("height", val)}
           />
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={4}>
           <DataCard
             label="BMI"
             value={bmi}
             icon={<MonitorWeightIcon sx={{ color: "#fbc02d", fontSize: 40 }} />}
           />
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={4}>
           <DataCard
             label="Water Intake"
             value={getLatest(userDetails?.waterIntake)}

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { getUserAppointments } from "../../services/api";
 import { Box, Typography, Chip, Card } from "@mui/material";
-import Avatar from "../Layout/Avatar";
+import Avatar from "@mui/material/Avatar";
+import { getColorForChar } from "../../utils/avatarColors";
 
 const UserAppointments = ({ refresh, show = "upcoming" }) => {
   const [appointments, setAppointments] = useState([]);
@@ -76,7 +77,18 @@ const UserAppointments = ({ refresh, show = "upcoming" }) => {
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Avatar pz="50px" color="white" borderRadius="50%" fontSize="24px">
+            <Avatar
+              sx={{
+                width: 50,
+                height: 50,
+                bgcolor: getColorForChar(
+                  appt.dietician?.name?.charAt(0).toUpperCase()
+                ),
+                color: "white",
+                fontSize: 24,
+                fontWeight: "bold",
+              }}
+            >
               {appt.dietician?.name?.charAt(0).toUpperCase()}
             </Avatar>
             <Box sx={{ ml: 2 }}>

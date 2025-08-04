@@ -19,6 +19,8 @@ import PatientList from "./pages/Dietician/PatientList";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Progress from "./components/User/Progress";
 import UserProfile from "./pages/Dietician/UserProfile";
+import ChatContainer from "./components/Chat/ChatContainer";
+import FoodAnalysis from "./pages/User/FoodAnalysis";
 
 function App() {
   return (
@@ -44,6 +46,8 @@ function App() {
             <Route path="complete-profile" element={<CompleteProfile />} />
             <Route path="appointments" element={<Appointments />} />
             <Route path="progress" element={<Progress />} />
+            <Route path="food-analysis" element={<FoodAnalysis />} />
+            <Route path="chat" element={<ChatContainer />} />
             {/* Add more user routes as needed */}
           </Route>
 
@@ -70,6 +74,7 @@ function App() {
             <Route path="profile" element={<DieticianProfile />} />
             <Route path="patients" element={<PatientList />} />
             <Route path="user-profile" element={<UserProfile />} />
+            <Route path="chat" element={<ChatContainer />} />
             {/* Add more dietician routes as needed */}
           </Route>
         </Routes>

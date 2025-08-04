@@ -60,4 +60,9 @@ export const updateUserDetailField = async (field, value) => {
   });
 };
 
+export const getUserDetailsById = async (userId) => {
+  const response = await API.get(`/user/details/${userId}`);
+  return response.data;
+};
+
 export default API;

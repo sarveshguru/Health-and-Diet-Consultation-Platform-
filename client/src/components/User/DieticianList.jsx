@@ -2,7 +2,8 @@ import React from "react";
 import { Box, Typography, Button, Grid, Card } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import SchoolIcon from "@mui/icons-material/School";
-import Avatar from "../Layout/Avatar";
+import Avatar from "@mui/material/Avatar";
+import { getColorForChar } from "../../utils/avatarColors";
 
 const DieticianList = ({ dieticians = [], loading, onBook }) => (
   <Box sx={{ mt: 4 }}>
@@ -28,7 +29,16 @@ const DieticianList = ({ dieticians = [], loading, onBook }) => (
               minWidth: 260,
             }}
           >
-            <Avatar pz="50px" color="white" borderRadius="50%" fontSize="34px">
+            <Avatar
+              sx={{
+                width: 50,
+                height: 50,
+                bgcolor: getColorForChar(d.name.charAt(0).toUpperCase()),
+                color: "white",
+                fontSize: 34,
+                fontWeight: "bold",
+              }}
+            >
               {d.name.charAt(0).toUpperCase()}
             </Avatar>
             <Typography

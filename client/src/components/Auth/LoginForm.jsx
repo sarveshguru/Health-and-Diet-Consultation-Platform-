@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   TextField,
   Button,
@@ -15,12 +15,14 @@ import LocalDiningIcon from "@mui/icons-material/LocalDining";
 import LoginIcon from "@mui/icons-material/Login";
 import API from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("user"); // or 'dietician'
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -30,9 +32,34 @@ const LoginForm = () => {
       const { data } = await API.post(endpoint, { email, password });
       localStorage.setItem("token", data.token);
       localStorage.setItem("role", role);
+      
+      // Set default authorization header
+      API.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
+      
+      // Fetch user data based on role
+      let userData;
+      if (role === "user") {
+        const response = await API.get("/user/profile");
+        userData = response.data;
+      } else if (role === "dietician") {
+        const response = await API.get("/dietician/profile");
+        userData = response.data;
+      }
+      
+      if (userData) {
+        login({
+          id: userData._id,
+          name: userData.name,
+          email: userData.email,
+          role: role,
+          ...userData
+        });
+      }
+      
       if (role === "user") navigate("/user/dashboard");
       else navigate("/dietician/dashboard");
     } catch (err) {
+      console.error("Login error:", err);
       if (err.response && err.response.data && err.response.data.message) {
         alert(err.response.data.message);
       } else if (err.message) {

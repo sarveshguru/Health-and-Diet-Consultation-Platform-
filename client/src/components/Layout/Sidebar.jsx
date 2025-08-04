@@ -19,9 +19,12 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
 import GroupIcon from "@mui/icons-material/Group";
+import ChatIcon from "@mui/icons-material/Chat";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import { NavLink, useNavigate } from "react-router-dom";
 import API from "../../services/api";
-import Avatar from "../Layout/Avatar";
+import Avatar from "@mui/material/Avatar";
+import { getColorForChar } from "../../utils/avatarColors";
 
 const drawerWidth = 240;
 
@@ -29,6 +32,8 @@ const userMainMenuItems = [
   { label: "Dashboard", icon: <DashboardIcon />, path: "/user/dashboard" },
   { label: "My Appointment", icon: <EventIcon />, path: "/user/appointments" },
   { label: "Progress Tracker", icon: <TimelineIcon />, path: "/user/progress" },
+  { label: "AI Food Analysis", icon: <CameraAltIcon />, path: "/user/food-analysis" },
+  { label: "Chat", icon: <ChatIcon />, path: "/user/chat" },
 ];
 const userBottomMenuItems = [
   { label: "Profile Settings", icon: <SettingsIcon />, path: "/user/profile" },
@@ -41,6 +46,7 @@ const dieticianMainMenuItems = [
     path: "/dietician/appointments",
   },
   { label: "Patients", icon: <GroupIcon />, path: "/dietician/patients" },
+  { label: "Chat", icon: <ChatIcon />, path: "/dietician/chat" },
 ];
 const dieticianBottomMenuItems = [
   { label: "Profile", icon: <PersonIcon />, path: "/dietician/profile" },
@@ -131,13 +137,14 @@ const Sidebar = () => {
               }}
             >
               <Avatar
-                backgroundColor="#ffa551"
-                py="2px"
-                px="0px"
-                pz="68px"
-                color="white"
-                borderRadius="50%"
-                fontSize="28px"
+                sx={{
+                  width: 68,
+                  height: 68,
+                  bgcolor: getColorForChar(user.name.charAt(0).toUpperCase()),
+                  color: "white",
+                  fontSize: 28,
+                  fontWeight: "bold",
+                }}
               >
                 {user.name.charAt(0).toUpperCase()}
               </Avatar>

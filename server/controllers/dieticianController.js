@@ -49,3 +49,15 @@ exports.getAllDieticians = async (req, res) => {
     res.status(500).json({ message: "Failed to fetch dieticians" });
   }
 };
+
+exports.getDieticianProfile = async (req, res) => {
+  try {
+    const dietician = await Dietician.findById(req.user.id).select("-password");
+    if (!dietician) {
+      return res.status(404).json({ message: "Dietician not found" });
+    }
+    res.json(dietician);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch dietician profile" });
+  }
+};
