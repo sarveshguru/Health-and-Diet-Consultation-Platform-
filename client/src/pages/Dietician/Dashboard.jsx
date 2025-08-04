@@ -41,7 +41,7 @@ function DieticianDashboard() {
             </Typography>
           </Paper>
         </Grid>
-        <Grid columns={4}>
+        <Grid columns={4} sx={{ boxShadow: "0 1px 4px rgba(0, 0, 0, 0.89)", mr: 3 }}>
           <Paper sx={{ p: 3, textAlign: "center" }}>
             <Typography variant="h6">Appointments</Typography>
             <Typography variant="h4" color="primary">

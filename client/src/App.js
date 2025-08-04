@@ -21,6 +21,7 @@ import Progress from "./components/User/Progress";
 import UserProfile from "./pages/Dietician/UserProfile";
 import ChatContainer from "./components/Chat/ChatContainer";
 import FoodAnalysis from "./pages/User/FoodAnalysis";
+import AIDietPlan from "./pages/User/AIDietPlan";
 
 function App() {
   return (
@@ -47,8 +48,8 @@ function App() {
             <Route path="appointments" element={<Appointments />} />
             <Route path="progress" element={<Progress />} />
             <Route path="food-analysis" element={<FoodAnalysis />} />
+            <Route path="ai-diet-plan" element={<AIDietPlan />} />
             <Route path="chat" element={<ChatContainer />} />
-            {/* Add more user routes as needed */}
           </Route>
 
           {/* Dietician routes */}
@@ -61,21 +62,10 @@ function App() {
             }
           >
             <Route path="dashboard" element={<DieticianDashboard />} />
-            <Route
-              path="appointments"
-              element={
-                <ProtectedRoute allowedRole="dietician">
-                  {require("./pages/Dietician/Appointments").default
-                    ? require("./pages/Dietician/Appointments").default()
-                    : null}
-                </ProtectedRoute>
-              }
-            />
             <Route path="profile" element={<DieticianProfile />} />
+            <Route path="appointments" element={<Appointments />} />
             <Route path="patients" element={<PatientList />} />
             <Route path="user-profile" element={<UserProfile />} />
-            <Route path="chat" element={<ChatContainer />} />
-            {/* Add more dietician routes as needed */}
           </Route>
         </Routes>
       </Router>

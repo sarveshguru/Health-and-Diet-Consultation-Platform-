@@ -21,6 +21,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import GroupIcon from "@mui/icons-material/Group";
 import ChatIcon from "@mui/icons-material/Chat";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
 import { NavLink, useNavigate } from "react-router-dom";
 import API from "../../services/api";
 import Avatar from "@mui/material/Avatar";
@@ -32,7 +33,16 @@ const userMainMenuItems = [
   { label: "Dashboard", icon: <DashboardIcon />, path: "/user/dashboard" },
   { label: "My Appointment", icon: <EventIcon />, path: "/user/appointments" },
   { label: "Progress Tracker", icon: <TimelineIcon />, path: "/user/progress" },
-  { label: "AI Food Analysis", icon: <CameraAltIcon />, path: "/user/food-analysis" },
+  {
+    label: "AI Food Analysis",
+    icon: <CameraAltIcon />,
+    path: "/user/food-analysis",
+  },
+  {
+    label: "AI Diet Plan",
+    icon: <RestaurantIcon />,
+    path: "/user/ai-diet-plan",
+  },
   { label: "Chat", icon: <ChatIcon />, path: "/user/chat" },
 ];
 const userBottomMenuItems = [

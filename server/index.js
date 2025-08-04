@@ -9,6 +9,7 @@ const userDetailsRoute = require("./routes/userDetailsRoutes");
 const bmiHistoryRoutes = require("./routes/bmiHistoryRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const foodAnalysisRoutes = require("./routes/foodAnalysisRoutes");
+const aiDietPlanRoutes = require("./routes/aiDietPlanRoutes");
 
 // Socket.IO setup
 const http = require("http");
@@ -31,6 +32,7 @@ app.use("/api/user-details", userDetailsRoute);
 app.use("/api/bmi-history", bmiHistoryRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/food-analysis", foodAnalysisRoutes);
+app.use("/api/ai-diet-plan", aiDietPlanRoutes);
 
 // Add this for testing server
 app.get("/", (req, res) => {
