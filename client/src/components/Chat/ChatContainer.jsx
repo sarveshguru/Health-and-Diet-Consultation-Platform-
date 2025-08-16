@@ -457,7 +457,7 @@ const ChatContainer = () => {
   }
 
   // If user is not authenticated, show error message
-  if (!user) {
+  if (!user && !authLoading) {
     return (
       <Box
         display="flex"
