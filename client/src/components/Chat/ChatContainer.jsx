@@ -443,32 +443,59 @@ const ChatContainer = () => {
     }
   };
 
-  if (loading || authLoading) {
+  // if (authLoading || loading) {
+  //   return (
+  //     <Box
+  //       display="flex"
+  //       justifyContent="center"
+  //       alignItems="center"
+  //       minHeight="400px"
+  //     >
+  //       <Typography variant="h6">Loading chat...</Typography>
+  //     </Box>
+  //   );
+  // }
+
+  // // If user is not authenticated, show error message
+  // if (!user) {
+  //   return (
+  //     <Box
+  //       display="flex"
+  //       justifyContent="center"
+  //       alignItems="center"
+  //       minHeight="400px"
+  //     >
+  //       <Typography variant="h6">Please login to access chat.</Typography>
+  //     </Box>
+  //   );
+  // }
+  if (authLoading) {
     return (
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        minHeight="400px"
-      >
+      <Box display="flex" justifyContent="center" alignItems="center" minHeight="400px">
+        <Typography variant="h6">Checking authentication...</Typography>
+      </Box>
+    );
+  }
+  
+  // Only check `user` after authLoading is false
+  if (!user) {
+    return (
+      <Box display="flex" justifyContent="center" alignItems="center" minHeight="400px">
+        <Typography variant="h6">Please login to access chat.</Typography>
+      </Box>
+    );
+  }
+  
+  // Now check chat loading
+  if (loading) {
+    return (
+      <Box display="flex" justifyContent="center" alignItems="center" minHeight="400px">
         <Typography variant="h6">Loading chat...</Typography>
       </Box>
     );
   }
 
-  // If user is not authenticated, show error message
-  if (!user && !authLoading) {
-    return (
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        minHeight="400px"
-      >
-        <Typography variant="h6">Please login to access chat.</Typography>
-      </Box>
-    );
-  }
+  
 
   return (
     <Box sx={{ flexGrow: 1, padding: 2 }}>
