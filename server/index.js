@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const axios = require('axios');
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const dieticianRoutes = require("./routes/dieticianRoutes");
@@ -23,6 +24,23 @@ app.use(cors({origin: '*'}));
 app.use(express.json());
 
 connectDB();
+
+// prevent from sleeping server by render
+const url = `https://stack-overflow-clone-eke8.onrender.com`;
+const interval = 30000;
+
+function reloadWebsite() {
+  axios
+    .get(url)
+    .then((response) => {
+      console.log("website reloded");
+    })
+    .catch((error) => {
+      console.error(`Error : ${error.message}`);
+    });
+}
+
+setInterval(reloadWebsite, interval);
 
 app.use("/api/user", userRoutes);
 app.use("/api/dietician", dieticianRoutes);
