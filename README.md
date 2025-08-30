@@ -136,8 +136,9 @@ This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md)
 
 For questions, feedback, or support, reach out via:
 
-- GitHub: [@sarveshguru](https://github.com/sarveshguru) &nbsp; [@Vaishnavvii](https://github.com/Vaishnavvii) &nbsp; [@AjayLagdive](https://github.com/AjayLagdive)
-- Email: csarvesh288@gmail.com | kvaishnavi881@gmail.com | lagdiveajay96@gmail.com
+- GitHub: [@sarveshguru](https://github.com/sarveshguru) &nbsp; [@Vaishnavvii](https://github.com/Vaishnavvii) &nbsp; [@AjayLagdive](https://github.com/AjayLagdive) ; [@DevanshRai](https://github.com/DEvD0) ;
+- Email: csarvesh288@gmail.com | kvaishnavi881@gmail.com | lagdiveajay96@gmail.com | devanshrai1204@gmail.com
+- 
 
 ---
 
